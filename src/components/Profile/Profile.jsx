@@ -40,7 +40,7 @@ const Profile = () => {
     window.location.reload();
   };
   return (
-    <div className='sm:w-[100vw] px-6'>
+    <div className=' w-[100vw] px-6'>
       {isAuthenticated ? (
         <div className=''>
           <div className='flex-col gap-2 md:flex-row md:justify-between lg:flex items-center'>
