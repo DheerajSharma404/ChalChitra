@@ -5,6 +5,7 @@ import Rating from "react-rating";
 import { NavLink } from "react-router-dom";
 import { useGetListQuery } from "../../services/TMDB";
 import Footer from "../Footer/Footer";
+import logout from "../../assets/images/logout.png";
 
 const Profile = () => {
   const { isAuthenticated, user } = useSelector(userSelector);
@@ -49,11 +50,7 @@ const Profile = () => {
             >
               <div className=' flex justify-center items-center gap-2  py-3 px-8 bg-red-700 rounded-full  hover:bg-red-800 transition duration-300 ease-in-out'>
                 <span>LOGOUT</span>
-                <img
-                  src='src/assets/images/logout.png'
-                  alt='logoutIcon'
-                  className='w-6 invert '
-                />
+                <img src={logout} alt='logoutIcon' className='w-6 invert ' />
               </div>
             </div>
           </div>

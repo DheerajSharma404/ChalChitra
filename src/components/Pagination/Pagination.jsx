@@ -1,4 +1,6 @@
 import React from "react";
+import previous from "../../assets/images/previous.png";
+import next from "../../assets/images/next.png";
 
 const Pagination = ({ currentPage, setPage, totalPages }) => {
   const handlePrev = () => {
@@ -19,22 +21,14 @@ const Pagination = ({ currentPage, setPage, totalPages }) => {
           className=' flex justify-center items-center gap-4 py-2 px-6 text-center rounded-full hover:bg-neutral-900'
           onClick={handlePrev}
         >
-          <img
-            src='src/assets/images/previous.png'
-            alt='previousIcon'
-            className='w-6 h-6 invert'
-          />
+          <img src={previous} alt='previousIcon' className='w-6 h-6 invert' />
         </button>
         <h1 className='text-xl font-bold mx-6'>{currentPage}</h1>
         <button
           className=' flex justify-center items-center gap-4 py-2 px-6  hover:bg-neutral-900 text-center rounded-full'
           onClick={handleNext}
         >
-          <img
-            src='src/assets/images/next.png'
-            alt='nextIcon'
-            className='w-6 h-6 invert'
-          />
+          <img src={next} alt='nextIcon' className='w-6 h-6 invert' />
         </button>
       </div>
     </div>

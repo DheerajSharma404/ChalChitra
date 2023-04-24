@@ -6,6 +6,8 @@ import CategoryGenreBar from "../CategoryGenreBar/CategoryGenreBar";
 import { searchMovie } from "../../features/currentGenreOrCategorySlice";
 import { fetchToken, createSessionId, moviesApi } from "../../utils/index";
 import { setUser, userSelector } from "../../features/auth";
+import menu from "../../assets/images/menu.png";
+import login from "../../assets/images/login.png";
 
 const NavBar = () => {
   const { id } = useParams();
@@ -56,7 +58,7 @@ const NavBar = () => {
         <div className=' w-52 flex justify-start items-center'>
           <div className='flex justify-between items-center'>
             <img
-              src='src/assets/images/menu.png'
+              src={menu}
               alt='menu button'
               className='w-8 h-8 mr-3 cursor-pointer md:cursor-not-allowed lg:cursor-not-allowed '
               onClick={() => setOpenDrawer(!openDrawer)}
@@ -69,7 +71,8 @@ const NavBar = () => {
           </div>
         </div>
         {(location.pathname === `/category/${id}` ||
-          location.pathname === `/genre/${id}`) && (
+          location.pathname === `/genre/${id}` ||
+          location.pathname === "/") && (
           <div className='w-6/12'>
             <input
               type='text'
@@ -106,11 +109,7 @@ const NavBar = () => {
               onClick={fetchToken}
             >
               <span>LOGIN</span>
-              <img
-                src='src/assets/images/login.png'
-                alt='loginIcon'
-                className='w-6 invert'
-              />
+              <img src={login} alt='loginIcon' className='w-6 invert' />
             </div>
           )}
         </div>

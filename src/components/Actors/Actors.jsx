@@ -9,6 +9,8 @@ import {
 import Pagination from "../Pagination/Pagination";
 import Footer from "../Footer/Footer";
 import { FadeLoader } from "react-spinners";
+import back from "../../assets/images/back.png";
+import imdb from "../../assets/images/imdb.png";
 
 const Actors = () => {
   const [page, setPage] = useState(1);
@@ -75,22 +77,14 @@ const Actors = () => {
                 to={`https://www.imdb.com/title/${data?.imdb_id}`}
                 className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out  my-2'
               >
-                <img
-                  src='../../../src/assets/images/imdb.png'
-                  alt='imdbIcon'
-                  className='w-6 h-6 invert '
-                />
+                <img src={imdb} alt='imdbIcon' className='w-6 h-6 invert ' />
                 <span>IMDB</span>
               </NavLink>
               <button
                 className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out  overflow-y-scroll my-2'
                 onClick={() => navigate(-1)}
               >
-                <img
-                  src='../../../src/assets/images/back.png'
-                  alt='backIcon'
-                  className='w-5 h-5 invert '
-                />
+                <img src={back} alt='backIcon' className='w-5 h-5 invert ' />
                 <span>GO BACK</span>
               </button>
             </div>

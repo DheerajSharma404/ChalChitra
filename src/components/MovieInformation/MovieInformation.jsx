@@ -17,6 +17,15 @@ import { userSelector } from "../../features/auth";
 import Footer from "../Footer/Footer";
 
 import { FadeLoader } from "react-spinners";
+import cancel from "../../assets/images/cancel.png";
+import heart from "../../assets/images/heart.png";
+import heartFilled from "../../assets/images/heart-filled.png";
+import watchlist from "../../assets/images/watchlist.png";
+import watchlistFilled from "../../assets/images/watchlist-filled.png";
+import back from "../../assets/images/back.png";
+import globe from "../../assets/images/globe.png";
+import imdb from "../../assets/images/imdb.png";
+import trailer from "../../assets/images/trailer.png";
 
 const tmbdApiKey = import.meta.env.VITE_TMBD_KEY;
 
@@ -269,7 +278,7 @@ const MovieInformation = () => {
                 className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out  overflow-y-scroll '
               >
                 <img
-                  src='src/assets/images/globe.png'
+                  src={globe}
                   alt='genreIcon'
                   className='w-5 h-5 invert focus:invert-0'
                 />
@@ -280,7 +289,7 @@ const MovieInformation = () => {
                 className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out  overflow-y-scroll '
               >
                 <img
-                  src='src/assets/images/imdb.png'
+                  src={imdb}
                   alt='genreIcon'
                   className='w-6 h-6 invert focus:invert-0'
                 />
@@ -291,7 +300,7 @@ const MovieInformation = () => {
                 onClick={() => setIsModalOpen((prev) => !prev)}
               >
                 <img
-                  src='src/assets/images/trailer.png'
+                  src={trailer}
                   alt='genreIcon'
                   className='w-5 h-5 invert focus:invert-0'
                 />
@@ -307,11 +316,7 @@ const MovieInformation = () => {
                 onClick={handleFavorite}
               >
                 <img
-                  src={
-                    isFavorite
-                      ? "src/assets/images/heart-filled.png"
-                      : "src/assets/images/heart.png"
-                  }
+                  src={isFavorite ? ` ${heartFilled}` : `${heart}`}
                   alt='genreIcon'
                   className='w-5 h-5 '
                 />
@@ -324,11 +329,7 @@ const MovieInformation = () => {
                 onClick={handleWatchlist}
               >
                 <img
-                  src={
-                    isWatchlist
-                      ? "src/assets/images/watchlist-filled.png"
-                      : "src/assets/images/watchlist.png"
-                  }
+                  src={isWatchlist ? ` ${watchlistFilled} ` : `${watchlist}`}
                   alt='genreIcon'
                   className='w-5 h-5'
                 />
@@ -341,7 +342,7 @@ const MovieInformation = () => {
                 className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out '
               >
                 <img
-                  src='src/assets/images/back.png'
+                  src={back}
                   alt='genreIcon'
                   className='w-5 h-5 invert focus:invert-0'
                 />
@@ -526,11 +527,7 @@ const MovieInformation = () => {
           className='flex justify-end items-center p-4'
           onClick={() => setIsModalOpen((prev) => !prev)}
         >
-          <img
-            src='src/assets/images/cancel.png'
-            alt=''
-            className='w-10 h-10 cursor-pointer inver'
-          />
+          <img src={cancel} alt='' className='w-10 h-10 cursor-pointer inver' />
         </div>
         {data?.videos?.results?.length > 0 ? (
           <iframe
