@@ -55,7 +55,6 @@ function App() {
         },
         {
           path: "profile",
-          element: <Profile />,
           children: [
             {
               path: ":id",
@@ -64,7 +63,7 @@ function App() {
           ],
         },
         {
-          path: "/approved",
+          path: "approved",
           element: <Movies />,
         },
       ],
@@ -78,7 +77,7 @@ const Root = () => {
   return (
     <div>
       <NavBar />
-      <div className=' absolute top-16 md:left-60 -z-10 py-6 overflow-hidden transition-all  duration-75 ease-in-out'>
+      <div className=' absolute top-20 xs:top-18 md:left-60 -z-10 pb-4 overflow-hidden transition-all  duration-75 ease-in-out'>
         <Outlet />
       </div>
     </div>

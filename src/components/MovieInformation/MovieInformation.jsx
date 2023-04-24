@@ -122,23 +122,23 @@ const MovieInformation = () => {
 
   return (
     <div className='flex flex-col px-4'>
-      <div className='flex flex-col lg:flex-row '>
-        <div className='w-full md:w-2/3 sm:w-2/3 sm:mx-auto sm:pb-4 '>
+      <div className='flex flex-col lg:flex-row gap4 '>
+        <div className='w-full md:w-2/3 sm:w-2/3 sm:mx-auto sm:pb-4  '>
           <img
             src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
             alt={data.title}
-            className='object-cover rounded-3xl border border-neutral-800 '
+            className='object-cover rounded-3xl border border-neutral-800'
           />
         </div>
-        <div className='w-full md:w-3/3 px-8 sm:text-center md:mx-auto '>
-          <h1 className='text-6xl md:text-center font-extrabold pb-4 '>
+        <div className='w-full md:w-3/3  sm:text-center md:mx-auto  xs:px-0   lg:px-8 '>
+          <h1 className='text-6xl md:text-center font-extrabold pb-4 xs:pt-4 xs:text-4xl xs:text-center md:text-6xl '>
             {data.title} ( {data?.release_date?.slice(0, 4)} )
           </h1>
-          <p className='text-xl text-center text-neutral-500 pb-2'>
+          <p className='text-xl text-center text-neutral-500 pb-2 '>
             {data.tagline}
           </p>
           <div>
-            <p className='text-2xl font-bold text-white pb-2 lg:text-start flex justify-start items-center'>
+            <p className='text-2xl font-bold text-white pb-2 lg:justify-start flex justify-start items-center xs:justify-center'>
               Overview{" "}
               <span
                 className={` py-1 px-2 rounded-full border border-neutral-800 mx-4 text-xs  ${
@@ -148,12 +148,12 @@ const MovieInformation = () => {
                 {data?.status}
               </span>
             </p>
-            <p className='text-lg text-neutral-500 pb-2  lg:text-start'>
+            <p className='text-lg text-neutral-500 pb-2 xs:pb-4 lg:text-start xs:text-center'>
               {data.overview}
             </p>
           </div>
-          <div className='flex sm:flex-col justify-between items-center pb-4'>
-            <div className='flex justify-center items-center pb-4 lg:justify-start'>
+          <div className='flex sm:flex-col justify-between items-center pb-4 xs:flex-col xs:justify-center md:items-start lg:items-start '>
+            <div className='flex justify-center items-center pb-4 lg:justify-between xs:flex-col md:flex-row lg:flex-row md:justify-center w-full'>
               <Rating
                 initialRating={data?.vote_average / 2}
                 emptySymbol={
@@ -163,7 +163,7 @@ const MovieInformation = () => {
                     viewBox='0 0 24 24'
                     strokeWidth={1.5}
                     stroke='currentColor'
-                    className='w-9 h-9 lg:w-6 lg:h-6'
+                    className='md:w-8 md:h-8 lg:w-8 lg:h-8 xs:w-6 xs:h-6'
                   >
                     <path
                       strokeLinecap='round'
@@ -177,7 +177,7 @@ const MovieInformation = () => {
                     xmlns='http://www.w3.org/2000/svg'
                     viewBox='0 0 24 24'
                     fill='gold'
-                    className='w-9 h-9 lg:w-6 lg:h-6 '
+                    className='md:w-8 md:h-8 lg:w-8 lg:h-8 xs:w-6 xs:h-6 '
                   >
                     <path
                       fillRule='evenodd'
@@ -192,11 +192,11 @@ const MovieInformation = () => {
                 {data?.vote_average.toFixed(1)} / 10 ({data?.vote_count} votes)
               </span>
             </div>
-            <p className='text-xl font-bold sm:text-2xl'>
+            <p className='text-xl font-bold sm:text-2xl md:mx-auto lg:mx-0'>
               {data?.runtime} min - Language: {data?.spoken_languages[0]?.name}
             </p>
           </div>
-          <div className='flex flex-wrap justify-start sm:justify-center items-center gap-2 pb-4 lg:justify-start'>
+          <div className='flex flex-wrap justify-start sm:justify-center items-center gap-2 pb-4 lg:justify-start xs:justify-center'>
             {data?.genres.map(({ name, id }) => (
               <NavLink
                 key={id}
@@ -214,11 +214,11 @@ const MovieInformation = () => {
             ))}
           </div>
           <div className='pb-4'>
-            <p className='text-3xl font-bold text-white pb-6 lg:text-start'>
+            <p className='text-3xl font-bold text-white pb-6 lg:text-start xs:text-center'>
               Top Cast
             </p>
             {data?.credits?.cast?.length !== 0 ? (
-              <div className='flex flex-wrap  gap-2 justify-between items-center lg:justify-start'>
+              <div className='flex flex-wrap  gap-2 justify-between items-center lg:justify-start xs:gap-4'>
                 {data &&
                   data.credits?.cast
                     ?.map((character, i) =>
@@ -226,7 +226,7 @@ const MovieInformation = () => {
                         <NavLink
                           key={i}
                           to={`/actors/${character.id}`}
-                          className='flex flex-col justify-between items-center '
+                          className='flex flex-col justify-between items-center   '
                         >
                           <img
                             src={`https://image.tmdb.org/t/p/w500/${character.profile_path}`}
@@ -262,7 +262,7 @@ const MovieInformation = () => {
                     .slice(0, 6)}
               </div>
             ) : (
-              <p className='text-xl font-bold text-white pb-6 lg:text-start'>
+              <p className='text-xl font-bold text-white pb-6 lg:text-start xs:text-center'>
                 No Cast Found
               </p>
             )}
@@ -271,7 +271,7 @@ const MovieInformation = () => {
           <div>
             <div
               id='buttonGroup1'
-              className='flex flex-wrap justify-start sm:justify-center items-center gap-2 pb-4 lg:justify-start '
+              className='flex flex-wrap justify-start sm:justify-center items-center gap-2 pb-4 lg:justify-start xs:justify-center'
             >
               <NavLink
                 to={data?.homepage}
@@ -309,7 +309,7 @@ const MovieInformation = () => {
             </div>
             <div
               id='btn-group-2'
-              className='flex flex-wrap justify-start sm:justify-center items-center gap-2 pb-4 lg:justify-start'
+              className='flex flex-wrap justify-start sm:justify-center items-center gap-2 pb-4 lg:justify-start xs:justify-center'
             >
               <button
                 className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out  overflow-y-scroll '
@@ -353,7 +353,9 @@ const MovieInformation = () => {
         </div>
       </div>
       <div>
-        <h1 className='text-6xl font-bold p-6 text-center'>ScreenShots</h1>
+        <h1 className=' font-bold p-6 text-center sm:text-3xl  xs:text-3xl md:text-4xl lg:text-5xl'>
+          ScreenShots
+        </h1>
         <div className=' '>
           {data?.images?.backdrops?.length !== 0 ? (
             <div
@@ -377,10 +379,12 @@ const MovieInformation = () => {
         </div>
       </div>
       <div className='flex flex-col justify-center items-center '>
-        <h1 className='text-6xl font-bold p-6 text-center'>Reviews</h1>
+        <h1 className='text-6xl font-bold p-6 text-center xs:text-3xl  sm:text-3xl md:text-4xl lg:text-5xl'>
+          Reviews
+        </h1>
 
         {data?.reviews?.results?.length !== 0 ? (
-          <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 items-center place-content-center'>
+          <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 items-center place-content-center '>
             {data?.reviews?.results?.map((review, i) => (
               <div
                 key={i}
@@ -435,8 +439,8 @@ const MovieInformation = () => {
                     </div>
                   </div>
                 </div>
-                <div className='flex flex-col justify-start items-start h-56 overflow-y-scroll '>
-                  <p className='text-sm text-neutral-400 pb-4'>
+                <div className=' w-[100%] flex flex-col justify-start items-start h-56 overflow-scroll '>
+                  <p className='text-sm text-neutral-400 pb-4 w-full'>
                     {review.content}
                   </p>
                 </div>
@@ -451,7 +455,9 @@ const MovieInformation = () => {
       </div>
 
       <div className='flex flex-col items-center my-6'>
-        <h1 className='text-6xl font-bold p-6'>You Might Also Like</h1>
+        <h1 className='text-6xl font-bold p-6 xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl'>
+          You Might Also Like
+        </h1>
         <div className='  flex justify-center items-center gap-4 place-content-center'>
           {recommendedMovies?.results?.length !== 0 ? (
             // <MoviesList movies={recommendedMovies} numberOfMovies={6} />
@@ -460,15 +466,15 @@ const MovieInformation = () => {
                 <NavLink
                   key={movie.id}
                   to={`/movie/${movie.id}`}
-                  className='flex flex-col sm:justify-center sm:items-center p-4 border-neutral-800  rounded-xl hover:scale-105 transform transition duration-300 ease-in-out overflow-hidden  lg:items-start'
+                  className='flex flex-col sm:justify-center sm:items-center  border-neutral-800  rounded-xl hover:scale-105 transform transition duration-300 ease-in-out overflow-hidden  lg:items-start xs:justify-center xs:items-center'
                 >
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path}`}
                     alt='movie poster'
                     className='w-60 object-cover rounded-xl border border-neutral-800 '
                   />
-                  <div className='rounded-xl'>
-                    <p className='h-10 text-lg font-bold pt-2  overflow-hidden'>
+                  <div className='rounded-xl text-center'>
+                    <p className='h-10 text-lg font-bold pt-2  overflow-hidden xs:w-full '>
                       {movie?.title} ({movie?.release_date?.slice(0, 4)})
                     </p>
                     <Rating
@@ -510,7 +516,7 @@ const MovieInformation = () => {
               ))}
             </div>
           ) : (
-            <div className='text-xl font-bold text-red-700'>
+            <div className='text-xl font-bold text-red-700 xs:text-center'>
               Sorry, Nothing Was Found!!
             </div>
           )}
@@ -519,7 +525,7 @@ const MovieInformation = () => {
       <Footer />
 
       <div
-        className={` flex flex-col absolute top-6 left-4  2xl:w-[1408px] 2xl:h-[810px] sm:w-[610px] sm:h-[400px] md:w-[495px] lg:w-[750px] lg:h-[500px] xl:w-[1010px] xl:h-[600px]  bg-black  border border-red-700 rounded-3xl  ${
+        className={` flex flex-col absolute top-6 left-4 xs:w-[342px] 2xl:w-[1408px] 2xl:h-[810px] sm:w-[610px] sm:h-[400px] md:w-[495px] lg:w-[750px] lg:h-[500px] xl:w-[1010px] xl:h-[600px]  bg-black  border border-red-700 rounded-3xl  ${
           isModalOpen ? "visible" : "invisible"
         }`}
       >

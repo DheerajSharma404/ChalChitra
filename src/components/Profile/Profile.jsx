@@ -6,9 +6,11 @@ import { NavLink } from "react-router-dom";
 import { useGetListQuery } from "../../services/TMDB";
 import Footer from "../Footer/Footer";
 import logOut from "../../assets/images/logout.png";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const { isAuthenticated, user } = useSelector(userSelector);
+  const navigate = useNavigate();
 
   const { data: favourtieMovies, refetch: refetchFavorite } = useGetListQuery({
     listName: "/favorite/movies",
@@ -34,35 +36,36 @@ const Profile = () => {
 
   const logout = () => {
     localStorage.clear();
+
     window.location.reload();
   };
   return (
-    <div className='px-10'>
+    <div className=' w-[100vw-60px] px-6'>
       {isAuthenticated ? (
         <div className=''>
-          <div className='flex-col gap-2 md:flex-row md:justify-between lg:flex items-center '>
-            <div className='text-5xl font-extrabold sm:text-center  lg:text-start'>
+          <div className='flex-col gap-2 md:flex-row md:justify-between lg:flex items-center'>
+            <div className='text-5xl font-extrabold sm:text-center  lg:text-start xs:text-center xs:text-3xl   '>
               Welcome {user.name} !
             </div>
             <div
-              className='flex  justify-start items-center cursor-pointer py-4 sm:justify-center sm:items-center lg:text-end'
+              className='flex  justify-start items-center cursor-pointer py-4 sm:justify-center sm:items-center lg:text-end xs:text-center xs:justify-center xs:items-center'
               onClick={logout}
             >
-              <div className=' flex justify-center items-center gap-2  py-3 px-8 bg-red-700 rounded-full  hover:bg-red-800 transition duration-300 ease-in-out'>
+              <div className=' flex justify-center items-center gap-2  py-3 px-8 bg-red-700 rounded-full  hover:bg-red-800 transition duration-300 ease-in-out xs:text-sm xs:py-2 xs:px-5'>
                 <span>LOGOUT</span>
-                <img src={logOut} alt='logoutIcon' className='w-6 invert ' />
+                <img src={logOut} alt='logoutIcon' className='w-4 invert ' />
               </div>
             </div>
           </div>
           <div>
-            <div className='text-3xl font-bold pt-6 pb-2 text-red-600 sm:text-center lg:text-start'>
+            <div className='text-3xl font-bold pt-6 pb-2 text-red-600 sm:text-center lg:text-start xs:text-center'>
               Favourites
             </div>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xl:grid-cols-6 '>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xl:grid-cols-6  place-content-center'>
               {favourtieMovies?.results?.map((movie) => (
                 <NavLink
                   to={`/movie/${movie.id}`}
-                  className='flex flex-col sm:justify-center sm:items-center  p-4 border-neutral-800  rounded-xl hover:scale-105 transform transition duration-300 ease-in-out overflow-hidden'
+                  className='flex flex-col sm:justify-center sm:items-center  p-4 border-neutral-800  rounded-xl hover:scale-105 transform transition duration-300 ease-in-out overflow-hidden '
                 >
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
@@ -172,14 +175,17 @@ const Profile = () => {
           </div>
         </div>
       ) : (
-        <div className='text-xl  flex flex-col gap-2 justify-start items-start pt-4 w-[80vw] h-[80vh]'>
-          <span className='font-extrabold  text-6xl'>
+        <div className='text-xl  flex flex-col gap-2 justify-start items-start  xs:items-center xs:px-4 '>
+          <span className='font-extrabold  text-6xl xs:text-3xl'>
             Welcome to{" "}
-            <span className='text-6xl font-extrabold text-red-600'>
+            <span className='text-6xl font-extrabold text-red-600 xs:text-5xl'>
               ChalChitra!
             </span>
           </span>
-          <h1> Please, Login to Add Movies to Favourites and Watchlist !!</h1>
+          <h1 className='xs:text-sm'>
+            {" "}
+            Please, Login to Add Movies to Favourites and Watchlist !!
+          </h1>
         </div>
       )}
       <Footer />

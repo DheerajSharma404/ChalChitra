@@ -15,20 +15,20 @@ const Pagination = ({ currentPage, setPage, totalPages }) => {
   };
   if (totalPages === 0) return null;
   return (
-    <div className=' flex  justify-center items-center w-full'>
-      <div className='flex justify-between border border-neutral-700  items-center rounded-full w-2/4 p-2 mt-8'>
+    <div className=' flex  justify-center items-center'>
+      <div className='flex justify-between border border-neutral-700  items-center rounded-full  p-2 mt-8'>
         <button
-          className=' flex justify-center items-center gap-4 py-2 px-6 text-center rounded-full hover:bg-neutral-900'
+          className=' flex justify-center  items-center gap-4 py-2 px-6 text-center rounded-full hover:bg-neutral-900'
           onClick={handlePrev}
         >
           <img src={previous} alt='previousIcon' className='w-6 h-6 invert' />
         </button>
-        <h1 className='text-xl font-bold mx-6'>{currentPage}</h1>
+        <h1 className='text-xl font-bold mx-6 '>{currentPage}</h1>
         <button
-          className=' flex justify-center items-center gap-4 py-2 px-6  hover:bg-neutral-900 text-center rounded-full'
+          className=' flex justify-center items-center gap-4 py-2 px-6  hover:bg-neutral-900 text-center rounded-full '
           onClick={handleNext}
         >
-          <img src={next} alt='nextIcon' className='w-6 h-6 invert' />
+          <img src={next} alt='nextIcon' className='w-6 h-6 invert ' />
         </button>
       </div>
     </div>

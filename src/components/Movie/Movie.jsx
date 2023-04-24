@@ -16,8 +16,8 @@ const Movie = ({ movie, i }) => {
           alt='movie poster'
           className='w-40  object-cover rounded-l-xl'
         />
-        <div className='p-4 rounded-r-xl '>
-          <h1 className='text-2xl font-bold mb-2'>
+        <div className='p-4 xs:pt-2 rounded-r-xl '>
+          <h1 className='text-2xl font-bold mb-2 xs:text-xl'>
             {movie.title} ({movie?.release_date?.slice(0, 4)})
           </h1>
           <Rating

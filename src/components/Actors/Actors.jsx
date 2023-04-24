@@ -27,7 +27,7 @@ const Actors = () => {
   console.log("data", data);
   if (isLoading) {
     return (
-      <div className='w-[80vw] flex justify-center items-center'>
+      <div className='w-[100vw-60px] flex justify-center items-center'>
         {" "}
         <FadeLoader color='#ff0000' aria-label='Loading Spinner' />
       </div>
@@ -41,7 +41,7 @@ const Actors = () => {
     );
   }
   return (
-    <div className=' w-full px-4 '>
+    <div className=' w-full px-4'>
       <div className='flex flex-col lg:flex-row  md:justify-center md:items-center sm:justify-center sm:items-center '>
         <div className='w-full md:w-2/3 sm:w-1/3 lg:self-start lg:w-1/3 '>
           <img
@@ -50,7 +50,7 @@ const Actors = () => {
             className=' object-cover rounded-3xl border border-neutral-800'
           />
         </div>
-        <div className='w-full md:w-2/3 px-8 md:px-0 lg:px-8  lg:self-start'>
+        <div className='w-full md:w-2/3 px-8 md:px-0 lg:px-8  lg:self-start xs:px-0'>
           <h1 className='text-6xl  text-center font-extrabold pb-2 sm:text-4xl'>
             {data?.name}
           </h1>
@@ -58,10 +58,10 @@ const Actors = () => {
             {new Date(data?.birthday).toDateString()}
           </p>
           <div className='pb-2 '>
-            <p className='text-2xl font-bold text-white pb-2 md:text-center sm:text-center lg:text-start'>
+            <p className='text-2xl font-bold text-white pb-2 md:text-center sm:text-center lg:text-start xs:text-center'>
               Biography
             </p>
-            <p className='text-lg text-neutral-500  md:text-center sm:text-center lg:text-start'>
+            <p className='text-lg text-neutral-500  md:text-center sm:text-center lg:text-start xs:text-center'>
               {data?.biography.length !== 0
                 ? data?.biography
                 : "Sorry no biography yet!"}
@@ -71,7 +71,7 @@ const Actors = () => {
           <div className=''>
             <div
               id='buttonGroup1'
-              className='flex md:justify-center items-center gap-4 sm:justify-center lg:justify-start'
+              className='flex md:justify-center items-center gap-4 sm:justify-center lg:justify-start xs:justify-center'
             >
               <NavLink
                 to={`https://www.imdb.com/title/${data?.imdb_id}`}
@@ -81,7 +81,7 @@ const Actors = () => {
                 <span>IMDB</span>
               </NavLink>
               <button
-                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out  overflow-y-scroll my-2'
+                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out  my-2'
                 onClick={() => navigate(-1)}
               >
                 <img src={back} alt='backIcon' className='w-5 h-5 invert ' />
@@ -92,25 +92,25 @@ const Actors = () => {
         </div>
       </div>
       <div className='flex flex-col items-center my-6 '>
-        <h1 className='text-5xl font-extrabold p-6 md:text-center sm:text-center sm:text-4xl'>
+        <h1 className='text-5xl font-extrabold p-6 md:text-center sm:text-center sm:text-4xl xs:text-3xl xs:text-center'>
           {data?.name}'s Movies
         </h1>
         <div className='  flex justify-center items-center gap-4'>
           {moviesByActor?.results !== 0 ? (
             // <MoviesList movies={recommendedMovies} numberOfMovies={6} />
-            <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 place-content-center'>
+            <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 place-content-center gap-4'>
               {moviesByActor?.results.slice(0, 12).map((movie) => (
                 <NavLink
                   key={movie.id}
                   to={`/movie/${movie.id}`}
-                  className='flex flex-col sm:justify-center sm:items-center p-4 border-neutral-800  rounded-xl hover:scale-105 transform transition duration-300 ease-in-out overflow-hidden'
+                  className='flex flex-col sm:justify-center sm:items-center border-neutral-800  rounded-xl hover:scale-105 transform transition duration-300 ease-in-out '
                 >
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path}`}
                     alt='movie poster'
                     className='w-60 object-cover rounded-xl border border-neutral-800'
                   />
-                  <div className=' rounded-r-xl text-ellipsis'>
+                  <div className=' rounded-r-xl w-[100%] '>
                     <h1 className='text-lg w-48 h-10  font-bold pt-2 pl-1 overflow-hidden '>
                       {movie?.title} ({movie?.release_date?.slice(0, 4)})
                     </h1>

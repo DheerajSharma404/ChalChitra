@@ -20,7 +20,7 @@ const CategoryGenreBar = () => {
   ];
 
   return (
-    <div className='w-full h-[940px] pt-6 pb-16  px-2 overflow-y-scroll bg-black'>
+    <div className='w-full h-[940px] pt-3 pb-16  px-2 overflow-y-scroll bg-black'>
       <div className='select-none px-2 pb-4 border border-l-0 border-r-0 border-t-0  border-neutral-800'>
         <span className=' text-start text-lg font-bold'>Categories:</span>
         <div className='text-start  overflow-y-scroll '>

@@ -12,6 +12,7 @@ import previous from "./previous.png";
 import trailer from "./trailer.png";
 import watchlistFilled from "./watchlist-filled.png";
 import watchlist from "./watchlist.png";
+import search from "./search.png";
 
 export default {
   back,
@@ -28,4 +29,5 @@ export default {
   trailer,
   watchlistFilled,
   watchlist,
+  search,
 };
