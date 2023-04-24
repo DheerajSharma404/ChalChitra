@@ -18,7 +18,7 @@ const NavBar = () => {
   const [query, setQuery] = useState("");
   const { isAuthenticated, user } = useSelector(userSelector);
   const dispatch = useDispatch();
-  const isMobile = true;
+
   const token = localStorage.getItem("request_token");
   const session_idFromLocalStorage = localStorage.getItem("session_id");
 
@@ -51,10 +51,10 @@ const NavBar = () => {
   };
 
   return (
-    <div className='border'>
+    <div>
       <div
         id='nav__container'
-        className='flex justify-between items-center fixed top-0 w-full  bg-black z-50  py-2 px-6 border border-l-0 border-r-0 border-t-0 border-neutral-800 '
+        className='flex justify-between items-center fixed top-0 w-full  bg-black z-50  py-3 px-6 border border-l-0 border-r-0 border-t-0 border-neutral-800 '
       >
         <div className=' w-52 flex justify-start items-center'>
           <div className='flex justify-between items-center'>
@@ -80,7 +80,7 @@ const NavBar = () => {
             <input
               type='text'
               id='simple-search'
-              className='border rounded-full border-neutral-800 text-neutral-400 text-xl block w-full p-2 pl-6 bg-black focus:border-neutral-600 focus:outline-none placeholder-neutral-600 sm:visible xs:invisible'
+              className='border rounded-full border-neutral-800 text-neutral-400 text-xl  w-full p-2  pl-6  bg-black focus:border-neutral-600 focus:outline-none placeholder-neutral-600 sm:visible xs:invisible'
               placeholder='Search ...'
               // onKeyDown={(e) => handleKeyDown(e)}
               onChange={(e) => handleChange(e)}
@@ -98,13 +98,13 @@ const NavBar = () => {
         <div className='flex gap-2'>
           {isAuthenticated ? (
             <NavLink
-              to={`/profile/${user?.id}}`}
-              className='flex justify-center items-center gap-2 xs:pl-4  xs:pr-0 cursor-pointer'
+              to={`/profile/${user?.id}`}
+              className='flex justify-center items-center gap-2 xs:pl-4 py-2 xs:pr-0 cursor-pointer'
             >
               {/* <p className='text-white text-xl font-bold'>
                 {user?.name || user?.username}
               </p> */}
-              <div className='w-8 h-8 flex justify-center items-center'>
+              <div className='w-10 h-10 flex justify-center items-center'>
                 {/* {user.name.split(" ").map((name) => name[0])} */}
                 <img
                   src={`https://www.themoviedb.org/t/p/w64_and_h64_face${user?.avatar?.tmdb?.avatar_path}`}
@@ -115,7 +115,7 @@ const NavBar = () => {
             </NavLink>
           ) : (
             <div
-              className=' flex justify-center items-center gap-2 py-3 px-8 m-2 mr-0 bg-red-700 rounded-full hover:bg-red-800 transition duration-300 ease-in-out cursor-pointer xs:text-xs xs:py-2 xs:px-5 xs:gap-1 '
+              className=' flex justify-center items-center gap-2 py-2 px-8 m-2 mr-0 bg-red-700 rounded-full hover:bg-red-800 transition duration-300 ease-in-out cursor-pointer xs:text-xs xs:py-2 xs:px-5 xs:gap-1 '
               onClick={fetchToken}
             >
               <span>LOGIN</span>
@@ -125,7 +125,7 @@ const NavBar = () => {
         </div>
       </div>
       <div
-        className={`border  border-l-0 border-t-0 border-b-0 border-neutral-800 w-60  fixed top-16 left-0 transition-all duration-300 sm:${
+        className={`border  border-l-0 border-t-0 border-b-0 border-neutral-800 w-60  fixed  top-20 left-0 transition-all duration-300 sm:${
           openDrawer ? "visible" : "invisible"
         } 
           ${openDrawer ? "visible" : "invisible"}

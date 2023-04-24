@@ -116,14 +116,14 @@ const Profile = () => {
             </div>
           </div>
           <div>
-            <div className='text-3xl font-bold pt-6 pb-2 text-red-600 sm:text-center lg:text-start'>
+            <div className='text-3xl font-bold pt-6 pb-2 text-red-600 sm:text-center lg:text-start xs:text-center'>
               Watchlists
             </div>
-            <div className='grid xl:grid-cols-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1'>
+            <div className='grid xl:grid-cols-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 place-content-center'>
               {watchlistMovies?.results?.map((movie) => (
                 <NavLink
                   to={`/movie/${movie.id}`}
-                  className='flex flex-col sm:justify-center sm:items-center p-4 border-neutral-800  rounded-xl hover:scale-105 transform transition duration-300 ease-in-out overflow-hidden'
+                  className='flex flex-col sm:justify-center sm:items-center p-4 border-neutral-800  rounded-xl hover:scale-105 transform transition duration-300 ease-in-out overflow-hidden xs'
                 >
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

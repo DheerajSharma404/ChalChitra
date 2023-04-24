@@ -122,7 +122,7 @@ const MovieInformation = () => {
 
   return (
     <div className='flex flex-col px-4'>
-      <div className='flex flex-col lg:flex-row gap4 '>
+      <div className='flex flex-col lg:flex-row '>
         <div className='w-full md:w-2/3 sm:w-2/3 sm:mx-auto sm:pb-4  '>
           <img
             src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
@@ -131,7 +131,7 @@ const MovieInformation = () => {
           />
         </div>
         <div className='w-full md:w-3/3  sm:text-center md:mx-auto  xs:px-0   lg:px-8 '>
-          <h1 className='text-6xl md:text-center font-extrabold pb-4 xs:pt-4 xs:text-4xl xs:text-center md:text-6xl '>
+          <h1 className='text-6xl md:text-center font-extrabold pb-4 xs:pt-4 xs:text-4xl xs:text-center md:text-6xl md:pt-0 lg:pt-0'>
             {data.title} ( {data?.release_date?.slice(0, 4)} )
           </h1>
           <p className='text-xl text-center text-neutral-500 pb-2 '>
@@ -214,11 +214,11 @@ const MovieInformation = () => {
             ))}
           </div>
           <div className='pb-4'>
-            <p className='text-3xl font-bold text-white pb-6 lg:text-start xs:text-center'>
+            <p className='text-3xl font-bold text-white pb-6 lg:text-start xs:text-center '>
               Top Cast
             </p>
             {data?.credits?.cast?.length !== 0 ? (
-              <div className='flex flex-wrap  gap-2 justify-between items-center lg:justify-start xs:gap-4'>
+              <div className='flex flex-wrap  gap-2 justify-between items-center lg:justify-start xs:gap-4 xs:justify-center'>
                 {data &&
                   data.credits?.cast
                     ?.map((character, i) =>
