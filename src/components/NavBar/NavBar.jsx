@@ -54,18 +54,18 @@ const NavBar = () => {
     <div>
       <div
         id='nav__container'
-        className='flex justify-between items-center fixed top-0 w-full  bg-black z-50  py-3 px-6 border border-l-0 border-r-0 border-t-0 border-neutral-800 '
+        className='flex justify-between items-center fixed top-0 w-full  bg-black z-50  py-3 px-4 border border-l-0 border-r-0 border-t-0 border-neutral-800 '
       >
         <div className=' w-52 flex justify-start items-center'>
           <div className='flex justify-between items-center'>
             <img
               src={menu}
               alt='menu button'
-              className='w-8 h-8  xs:w-6 xs:h-6  mr-3 cursor-pointer md:cursor-not-allowed lg:cursor-not-allowed'
+              className=' md:w-8 md:h-8 sm:w-6 sm:h-6  xs:w-6 xs:h-6  mr-2 cursor-pointer md:cursor-not-allowed lg:cursor-not-allowed'
               onClick={() => setOpenDrawer(!openDrawer)}
             />
             <img
-              className=' w-36 object-cover '
+              className=' w-36 object-cover cursor-pointer'
               src='https://fontmeme.com/permalink/230422/9caf21c866ce86d1b336f173f9957b86.png'
               alt='chalchitraLogo'
               onClick={() => navigate("/")}
@@ -104,7 +104,7 @@ const NavBar = () => {
               {/* <p className='text-white text-xl font-bold'>
                 {user?.name || user?.username}
               </p> */}
-              <div className='w-10 h-10 flex justify-center items-center'>
+              <div className='md:w-10 md:h-10 lg:w-10 lg:h-10 xs:w-8 xs:h-8 flex justify-center items-center'>
                 {/* {user.name.split(" ").map((name) => name[0])} */}
                 <img
                   src={`https://www.themoviedb.org/t/p/w64_and_h64_face${user?.avatar?.tmdb?.avatar_path}`}

@@ -27,7 +27,7 @@ const Actors = () => {
   console.log("data", data);
   if (isLoading) {
     return (
-      <div className='w-[100vw-60px] flex justify-center items-center'>
+      <div className='w-[80vw] flex justify-center items-center'>
         {" "}
         <FadeLoader color='#ff0000' aria-label='Loading Spinner' />
       </div>
@@ -50,8 +50,8 @@ const Actors = () => {
             className=' object-cover rounded-3xl border border-neutral-800'
           />
         </div>
-        <div className='w-full md:w-2/3 px-8 md:px-0 lg:px-8  lg:self-start xs:px-0'>
-          <h1 className='text-6xl  text-center font-extrabold pb-2 sm:text-4xl'>
+        <div className='w-full md:w-2/3 px-8 md:px-0 lg:px-8  lg:self-start xs:px-0 '>
+          <h1 className='text-6xl  text-center font-extrabold pb-2 sm:text-4xl xs:pt-2  md:pt-0 lg:pt-0 xl:pt-0 '>
             {data?.name}
           </h1>
           <p className='text-xl text-center text-neutral-500 pb-2'>

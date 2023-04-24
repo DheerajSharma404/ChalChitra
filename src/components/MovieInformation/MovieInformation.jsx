@@ -33,11 +33,15 @@ const MovieInformation = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const [isWatchlist, setIsWatchlist] = useState(false);
+
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const { data, error, isLoading } = useGetMovieDetailsQuery(id);
+
   const { user } = useSelector(userSelector);
+
   const {
     data: recommendedMovies,
     error: recommendedMoviesError,
@@ -46,7 +50,9 @@ const MovieInformation = () => {
     list: "/recommendations",
     movie_id: id,
   });
+
   console.log("DATA", data);
+
   const { data: favourtieMovies } = useGetListQuery({
     listName: "/favorite/movies",
     account_id: user.id,
@@ -60,6 +66,7 @@ const MovieInformation = () => {
     session_id: localStorage.getItem("session_id"),
     page: 1,
   });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
