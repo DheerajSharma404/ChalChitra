@@ -72,7 +72,8 @@ const NavBar = () => {
         </div>
         {(location.pathname === `/category/${id}` ||
           location.pathname === `/genre/${id}` ||
-          location.pathname === "/") && (
+          location.pathname === "/" ||
+          location.pathname === "/approved") && (
           <div className='w-6/12'>
             <input
               type='text'

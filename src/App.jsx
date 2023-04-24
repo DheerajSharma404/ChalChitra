@@ -55,6 +55,7 @@ function App() {
         },
         {
           path: "profile",
+          element: <Profile />,
           children: [
             {
               path: ":id",

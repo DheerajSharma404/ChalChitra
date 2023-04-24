@@ -5,7 +5,7 @@ import heartFilled from "./heart-filled.png";
 import heart from "./heart.png";
 import imdb from "./imdb.png";
 import login from "./login.png";
-import logout from "./logout.png";
+import logOut from "./logout.png";
 import menu from "./menu.png";
 import next from "./next.png";
 import previous from "./previous.png";
@@ -21,7 +21,7 @@ export default {
   heart,
   imdb,
   login,
-  logout,
+  logOut,
   menu,
   next,
   previous,
