@@ -104,7 +104,7 @@ const NavBar = () => {
               {/* <p className='text-white text-xl font-bold'>
                 {user?.name || user?.username}
               </p> */}
-              <div className='md:w-10 md:h-10 lg:w-10 lg:h-10 xs:w-8 xs:h-8 flex justify-center items-center'>
+              <div className='w-8 h-8 flex justify-center items-center'>
                 {/* {user.name.split(" ").map((name) => name[0])} */}
                 <img
                   src={`https://www.themoviedb.org/t/p/w64_and_h64_face${user?.avatar?.tmdb?.avatar_path}`}
@@ -125,7 +125,7 @@ const NavBar = () => {
         </div>
       </div>
       <div
-        className={`border  border-l-0 border-t-0 border-b-0 border-neutral-800 w-60  fixed  top-20 left-0 transition-all duration-300 sm:${
+        className={`border  border-l-0 border-t-0 border-b-0 border-neutral-800 w-60  fixed  top-16 left-0 transition-all duration-300 sm:${
           openDrawer ? "visible" : "invisible"
         } 
           ${openDrawer ? "visible" : "invisible"}
