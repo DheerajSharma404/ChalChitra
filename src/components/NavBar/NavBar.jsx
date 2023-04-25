@@ -115,7 +115,7 @@ const NavBar = () => {
             </NavLink>
           ) : (
             <div
-              className=' flex justify-center items-center gap-2 py-2 px-8 m-2 mr-0 bg-red-700 rounded-full hover:bg-red-800 transition duration-300 ease-in-out cursor-pointer xs:text-xs xs:py-2 xs:px-5 xs:gap-1 '
+              className=' flex justify-center items-center gap-2 py-2 px-8 m-2 mr-0 bg-red-700 rounded-full hover:bg-red-800 transition duration-100 ease-in-out cursor-pointer xs:text-xs xs:py-2 xs:px-5 xs:gap-1 '
               onClick={fetchToken}
             >
               <span>LOGIN</span>

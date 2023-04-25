@@ -40,9 +40,9 @@ const Profile = () => {
     window.location.reload();
   };
   return (
-    <div className=' w-[100vw] px-6'>
+    <div className=' px-6'>
       {isAuthenticated ? (
-        <div className=''>
+        <div className=' '>
           <div className='flex-col gap-2 md:flex-row md:justify-between lg:flex items-center'>
             <div className='text-5xl font-extrabold sm:text-center  lg:text-start xs:text-center xs:text-3xl   '>
               Welcome {user.name} !
@@ -57,8 +57,8 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <div>
-            <div className='text-3xl font-bold pt-6 pb-2 text-red-600 sm:text-center lg:text-start xs:text-center'>
+          <div className='self-center'>
+            <div className='text-3xl font-bold pt-6 pb-2 text-red-600 sm:text-center lg:text-start xs:text-center '>
               Favourites
             </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xl:grid-cols-6  place-content-center'>
