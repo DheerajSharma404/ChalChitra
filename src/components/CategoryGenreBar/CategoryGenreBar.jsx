@@ -12,6 +12,8 @@ const CategoryGenreBar = () => {
   const dispatch = useDispatch();
 
   const { data, isLoading } = useGetGenresQuery();
+  console.log("CategoryOrGenre data", data);
+
   const categories = [
     { label: "Popular", value: "popular" },
     { label: "Top Rated", value: "top_rated" },
@@ -26,7 +28,7 @@ const CategoryGenreBar = () => {
         <div className='text-start  overflow-y-scroll '>
           {categories.map(({ label, value }) => (
             <NavLink
-              to={`/category/${value}`}
+              to={`/`}
               key={value}
               className={`py-2 px-6  hover:bg-red-700  focus:bg-red-700 focus:text-white rounded-full whitespace-nowrap flex justify-start items-center gap-4 transition duration-200 ease-in-out my-2 `}
               onClick={() => dispatch(selectGenreOrCategory(value))}
@@ -54,7 +56,7 @@ const CategoryGenreBar = () => {
             data?.genres.map(({ name, id }) => (
               <NavLink
                 key={id}
-                to={`/genre/${id}`}
+                to='/'
                 className='py-2 px-6  rounded-full  whitespace-nowrap flex justify-start items-center gap-4 focus:bg-red-700 focus:text-white hover:bg-red-700 transition duration-100 ease-in-out  overflow-y-scroll my-2'
                 onClick={() => dispatch(selectGenreOrCategory(id))}
               >

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
 import CategoryGenreBar from "../CategoryGenreBar/CategoryGenreBar";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { searchMovie } from "../../features/currentGenreOrCategorySlice";
 import { fetchToken, createSessionId, moviesApi } from "../../utils/index";
 import { setUser, userSelector } from "../../features/auth";
+
 import menu from "../../assets/images/menu.png";
 import login from "../../assets/images/login.png";
 import search from "../../assets/images/search.png";
@@ -14,15 +15,15 @@ const NavBar = () => {
   const { id } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [openDrawer, setOpenDrawer] = useState(true);
   const [query, setQuery] = useState("");
   const { isAuthenticated, user } = useSelector(userSelector);
-  const dispatch = useDispatch();
 
   const token = localStorage.getItem("request_token");
   const session_idFromLocalStorage = localStorage.getItem("session_id");
 
-  console.log("user", user);
+  // console.log("user", user);
 
   useEffect(() => {
     const logInUser = async () => {
@@ -46,7 +47,7 @@ const NavBar = () => {
 
   const handleChange = (e) => {
     setQuery(e.target.value);
-    console.log(query);
+    // console.log(query);
     dispatch(searchMovie(query));
   };
 
@@ -82,7 +83,6 @@ const NavBar = () => {
               id='simple-search'
               className='border rounded-full border-neutral-800 text-neutral-400 text-xl  w-full p-2  pl-6  bg-black focus:border-neutral-600 focus:outline-none placeholder-neutral-600 sm:visible xs:invisible'
               placeholder='Search ...'
-              // onKeyDown={(e) => handleKeyDown(e)}
               onChange={(e) => handleChange(e)}
               required
             />
@@ -105,12 +105,17 @@ const NavBar = () => {
                 {user?.name || user?.username}
               </p> */}
               <div className='w-8 h-8 flex justify-center items-center'>
-                {/* {user.name.split(" ").map((name) => name[0])} */}
-                <img
-                  src={`https://www.themoviedb.org/t/p/w64_and_h64_face${user?.avatar?.tmdb?.avatar_path}`}
-                  alt=''
-                  className='w-full h-full object-cover rounded-full'
-                />
+                {user?.avatar?.tmdb?.avatar_path ? (
+                  <img
+                    src={`https://www.themoviedb.org/t/p/w64_and_h64_face${user?.avatar?.tmdb?.avatar_path}`}
+                    alt=''
+                    className='w-full h-full object-cover rounded-full'
+                  />
+                ) : (
+                  <div className='py-[9px] px-[10px]  font-bold  rounded-full bg-red-700'>
+                    {user?.name.split(" ").map((name) => name[0])}
+                  </div>
+                )}
               </div>
             </NavLink>
           ) : (

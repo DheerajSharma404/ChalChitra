@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 import {
   NavBar,
   Movies,
@@ -7,73 +7,21 @@ import {
   MovieInformation,
 } from "./components";
 
-function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Root />,
-      children: [
-        {
-          path: "/",
-          element: <Movies />,
-        },
-        {
-          path: "movie",
-          children: [
-            {
-              path: ":id",
-              element: <MovieInformation />,
-            },
-          ],
-        },
-        {
-          path: "/category",
-          children: [
-            {
-              path: ":id",
-              element: <Movies />,
-            },
-          ],
-        },
-        {
-          path: "/genre",
-          children: [
-            {
-              path: ":id",
-              element: <Movies />,
-            },
-          ],
-        },
-        {
-          path: "actors",
-          children: [
-            {
-              path: ":id",
-              element: <Actors />,
-            },
-          ],
-        },
-        {
-          path: "profile",
-          children: [
-            {
-              path: ":id",
-              element: <Profile />,
-            },
-          ],
-        },
-        {
-          path: "approved",
-          element: <Movies />,
-        },
-      ],
-    },
-  ]);
+const App = () => {
+  return (
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Movies />} />
+        <Route path='movie/:id' element={<MovieInformation />} end />
+        <Route path='actors/:id' element={<Actors />} />
+        <Route path='profile/:id' element={<Profile />} />
+        <Route path='approved' element={<Movies />} />
+      </Route>
+    </Routes>
+  );
+};
 
-  return <RouterProvider router={router} />;
-}
-
-const Root = () => {
+const Layout = () => {
   return (
     <div>
       <NavBar />
