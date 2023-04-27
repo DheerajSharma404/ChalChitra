@@ -41,16 +41,21 @@ const Profile = () => {
       {isAuthenticated ? (
         <div className=' '>
           <div className='flex-col gap-2 md:flex-row md:justify-between lg:flex items-center'>
-            <div className='text-5xl font-extrabold sm:text-center  lg:text-start xs:text-center xs:text-3xl   '>
-              Welcome {user.name} !
+            <div className='md:text-5xl lg:text-5xl font-extrabold sm:text-center  lg:text-start xs:text-center xs:text-3xl   '>
+              Welcome{" "}
+              <span className='text-6xl font-extrabold '>{user.name}</span> !
             </div>
             <div
               className='flex  justify-start items-center cursor-pointer py-4 sm:justify-center sm:items-center lg:text-end xs:text-center xs:justify-center xs:items-center'
               onClick={logout}
             >
-              <div className=' flex justify-center items-center gap-2  py-3 px-8 bg-red-700 rounded-full  hover:bg-red-800 transition duration-300 ease-in-out xs:text-sm xs:py-2 xs:px-5'>
+              <div className=' flex justify-center items-center gap-2  md:py-3 md:px-8 lg:px-8 lg:py-3 bg-red-700 rounded-full  hover:bg-red-800 hover:scale-95 transform transition duration-200 ease-in-out xs:text-sm xs:py-2 xs:px-5 md:text-[16px] lg:text-[16px]'>
                 <span>LOGOUT</span>
-                <img src={logOut} alt='logoutIcon' className='w-4 invert ' />
+                <img
+                  src={logOut}
+                  alt='logoutIcon'
+                  className='w-6 invert  xs:w-4 md:w-6 lg:w-6'
+                />
               </div>
             </div>
           </div>

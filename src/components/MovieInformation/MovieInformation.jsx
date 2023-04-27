@@ -282,7 +282,7 @@ const MovieInformation = () => {
             >
               <NavLink
                 to={data?.homepage}
-                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out  overflow-y-scroll '
+                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out overflow-y-scroll '
               >
                 <img
                   src={globe}
@@ -293,7 +293,7 @@ const MovieInformation = () => {
               </NavLink>
               <NavLink
                 to={`https://www.imdb.com/title/${data?.imdb_id}`}
-                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out  overflow-y-scroll '
+                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out  overflow-y-scroll '
               >
                 <img
                   src={imdb}
@@ -303,7 +303,7 @@ const MovieInformation = () => {
                 <span>IMDB</span>
               </NavLink>
               <button
-                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out  overflow-y-scroll '
+                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out  overflow-y-scroll '
                 onClick={() => setIsModalOpen((prev) => !prev)}
               >
                 <img
@@ -319,7 +319,7 @@ const MovieInformation = () => {
               className='flex flex-wrap justify-start sm:justify-center items-center gap-2 pb-4 lg:justify-start xs:justify-center'
             >
               <button
-                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out  overflow-y-scroll '
+                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out overflow-y-scroll '
                 onClick={handleFavorite}
               >
                 <img
@@ -332,7 +332,7 @@ const MovieInformation = () => {
                 </span>
               </button>
               <button
-                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out  overflow-y-scroll '
+                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out overflow-y-scroll '
                 onClick={handleWatchlist}
               >
                 <img
@@ -346,7 +346,7 @@ const MovieInformation = () => {
               </button>
               <button
                 onClick={() => navigate(-1)}
-                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 transition duration-300 ease-in-out '
+                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out '
               >
                 <img
                   src={back}

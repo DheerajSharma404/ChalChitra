@@ -117,11 +117,15 @@ const NavBar = () => {
             </NavLink>
           ) : (
             <div
-              className=' flex justify-center items-center gap-2 py-2 px-8 m-2 mr-0 bg-red-700 rounded-full hover:bg-red-800 transition duration-100 ease-in-out cursor-pointer xs:text-xs xs:py-2 xs:px-5 xs:gap-1 '
+              className=' flex justify-center items-center gap-2 md:py-2 md:px-8 lg:px-8 lg:py-2  mr-0 bg-red-700 rounded-full hover:bg-red-800 cursor-pointer xs:text-xs xs:py-2 xs:px-5 xs:gap-1 md:text-[16px] lg:text-[16px]  active:scale-95 transform transition duration-200  ease-in-out'
               onClick={fetchToken}
             >
               <span>LOGIN</span>
-              <img src={login} alt='loginIcon' className='w-6 invert xs:w-4' />
+              <img
+                src={login}
+                alt='loginIcon'
+                className='w-6 invert xs:w-4 md:w-6 lg:w-6'
+              />
             </div>
           )}
         </div>
@@ -132,6 +136,7 @@ const NavBar = () => {
         } 
           ${openDrawer ? "visible" : "invisible"}
         md:visible`}
+        onClick={() => setOpenDrawer((prev) => !prev)}
       >
         <CategoryGenreBar />
       </div>

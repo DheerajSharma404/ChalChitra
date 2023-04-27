@@ -15,8 +15,8 @@ const Movie = ({ movie, i }) => {
           alt='movie poster'
           className='w-40  object-cover rounded-l-xl'
         />
-        <div className='p-4 xs:pt-2 rounded-r-xl '>
-          <h1 className='text-2xl font-bold mb-2 xs:text-xl'>
+        <div className='p-4 xs:pt-2 rounded-r-xl  '>
+          <h1 className='text-2xl font-bold mb-2 xs:text-xl md:text-2xl lg:text-2xl'>
             {movie.title} ({movie?.release_date?.slice(0, 4)})
           </h1>
           <Rating
@@ -53,7 +53,7 @@ const Movie = ({ movie, i }) => {
             }
             readonly
           />
-          <p className='text-sm  text-neutral-500'>
+          <p className='text-sm  text-neutral-500 overflow-y-scroll'>
             <span className='text-md text-white truncate'>Overview:</span>{" "}
             {movie.overview.slice(0, 100)}
             <span className='text-neutral-300'>

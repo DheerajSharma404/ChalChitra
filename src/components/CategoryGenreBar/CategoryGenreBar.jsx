@@ -12,7 +12,6 @@ const CategoryGenreBar = () => {
   const dispatch = useDispatch();
 
   const { data, isLoading } = useGetGenresQuery();
-  console.log("CategoryOrGenre data", data);
 
   const categories = [
     { label: "Popular", value: "popular" },
