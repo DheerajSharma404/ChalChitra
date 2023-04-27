@@ -1,8 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Rating from "react-rating";
 const Movie = ({ movie, i }) => {
-  const isMobile = false;
   return (
     //Movie Card
     <>
@@ -58,7 +57,7 @@ const Movie = ({ movie, i }) => {
             <span className='text-md text-white truncate'>Overview:</span>{" "}
             {movie.overview.slice(0, 100)}
             <span className='text-neutral-300'>
-              <NavLink to={`/movie/${movie.id}`}> ...Read More</NavLink>
+              <span to={`/movie/${movie.id}`}> ...Read More</span>
             </span>
           </p>
         </div>

@@ -6,11 +6,9 @@ import { NavLink } from "react-router-dom";
 import { useGetListQuery } from "../../services/TMDB";
 import Footer from "../Footer/Footer";
 import logOut from "../../assets/images/logout.png";
-import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const { isAuthenticated, user } = useSelector(userSelector);
-  const navigate = useNavigate();
 
   const { data: favourtieMovies, refetch: refetchFavorite } = useGetListQuery({
     listName: "/favorite/movies",
@@ -36,7 +34,6 @@ const Profile = () => {
 
   const logout = () => {
     localStorage.clear();
-    navigate("/");
     window.location.reload();
   };
   return (
