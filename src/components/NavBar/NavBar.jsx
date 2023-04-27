@@ -101,9 +101,6 @@ const NavBar = () => {
               to={`/profile/${user?.id}`}
               className='flex justify-center items-center gap-2 xs:pl-4 py-2 xs:pr-0 cursor-pointer'
             >
-              {/* <p className='text-white text-xl font-bold'>
-                {user?.name || user?.username}
-              </p> */}
               <div className='w-8 h-8 flex justify-center items-center'>
                 {user?.avatar?.tmdb?.avatar_path ? (
                   <img

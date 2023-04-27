@@ -36,7 +36,7 @@ const Profile = () => {
 
   const logout = () => {
     localStorage.clear();
-
+    navigate("/profile");
     window.location.reload();
   };
   return (
