@@ -108,9 +108,14 @@ const MovieInformation = () => {
     setIsWatchlist((isWatchlist) => !isWatchlist);
   };
 
+  const handleTrailer = () => {
+    setIsModalOpen((prev) => !prev);
+    window.scrollTo(0, 0);
+  };
+
   if (isLoading)
     return (
-      <div className='w-[80vw] flex justify-center items-center'>
+      <div className='w-[90vw] flex justify-center items-center'>
         {" "}
         <FadeLoader color='#ff0000' aria-label='Loading Spinner' />
       </div>
@@ -304,7 +309,7 @@ const MovieInformation = () => {
               </NavLink>
               <button
                 className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out  overflow-y-scroll '
-                onClick={() => setIsModalOpen((prev) => !prev)}
+                onClick={handleTrailer}
               >
                 <img
                   src={trailer}

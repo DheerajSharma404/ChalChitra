@@ -47,9 +47,9 @@ const CategoryGenreBar = () => {
         <span className=' text-start text-lg font-bold '>Genres:</span>
         <div className='text-start '>
           {isLoading ? (
-            <div className='w-[80vw] flex justify-center items-center'>
+            <div className='w-[60vw] flex justify-center items-center'>
               {" "}
-              <FadeLoader color='#ff0000' aria-label='Loading Spinner' />
+              <FadeLoader color='#ff0000' aria-label='Loading Spinner ' />
             </div>
           ) : (
             data?.genres.map(({ name, id }) => (

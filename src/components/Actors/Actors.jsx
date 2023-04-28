@@ -27,7 +27,7 @@ const Actors = () => {
   console.log("data", data);
   if (isLoading) {
     return (
-      <div className='w-[80vw] flex justify-center items-center'>
+      <div className='w-[90vw] flex justify-center items-center'>
         {" "}
         <FadeLoader color='#ff0000' aria-label='Loading Spinner' />
       </div>
