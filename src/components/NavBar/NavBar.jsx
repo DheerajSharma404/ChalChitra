@@ -36,7 +36,7 @@ const NavBar = () => {
         } else {
           const sessionId = await createSessionId(token);
           const { data: userData } = await moviesApi.get(
-            `/account/?session_id=${sessionId}`
+            `/account?session_id=${sessionId}`
           );
           dispatch(setUser(userData));
         }

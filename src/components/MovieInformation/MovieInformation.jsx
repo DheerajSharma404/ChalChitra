@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import Pagination from "../Pagination/Pagination";
 import axios from "axios";
 import Rating from "react-rating";
 import genreIcons from "../../assets/genreIcons";
@@ -403,13 +402,21 @@ const MovieInformation = () => {
                 className='flex flex-col justify-start items-start gap-4 p-4 border border-neutral-800 rounded-xl'
               >
                 <div className='flex  justify-start items-start gap-4 '>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500/${review.author_details.avatar_path}`}
-                    alt={review.author}
-                    className='w-10 h-10 object-cover rounded-full'
-                  />
+                  {review?.author_details?.avatar_path ? (
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500/${review?.author_details?.avatar_path}`}
+                      alt={review.author}
+                      className='w-10 h-10 object-cover rounded-full'
+                    />
+                  ) : (
+                    <div className='py-[9px] px-[10px]  font-bold  rounded-full bg-red-700'>
+                      {review?.author_details?.name
+                        .split(" ")
+                        .map((name) => name[0])}
+                    </div>
+                  )}
                   <div className='flex flex-col'>
-                    <p className='text-2xl font-extrabold'>{review.author}</p>
+                    <p className='text-2xl font-extrabold'>{review?.author}</p>
                     <div className='flex justify-center items-center pb-1 lg:justify-start'>
                       <Rating
                         initialRating={review?.author_details?.rating / 2}
