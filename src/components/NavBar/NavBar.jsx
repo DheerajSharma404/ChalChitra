@@ -10,6 +10,7 @@ import { setUser, userSelector } from "../../features/auth";
 import menu from "../../assets/images/menu.png";
 import login from "../../assets/images/login.png";
 import search from "../../assets/images/search.png";
+import searchRed from "../../assets/images/search_red.png";
 
 const NavBar = () => {
   const { id } = useParams();
@@ -18,6 +19,7 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const [openDrawer, setOpenDrawer] = useState(true);
   const [query, setQuery] = useState("");
+  const [mobileSearch, setMobileSearch] = useState(false);
   const { isAuthenticated, user } = useSelector(userSelector);
 
   const token = localStorage.getItem("request_token");
@@ -50,12 +52,16 @@ const NavBar = () => {
     // console.log(query);
     dispatch(searchMovie(query));
   };
+  const handleMobileSearch = () => {
+    setMobileSearch((prev) => !prev);
+    dispatch(searchMovie(query));
+  };
 
   return (
     <div>
       <div
         id='nav__container'
-        className='flex justify-between items-center fixed top-0 w-full  bg-black z-50  py-3 px-4 border border-l-0 border-r-0 border-t-0 border-neutral-800 '
+        className='flex justify-between items-center fixed top-0 w-full  bg-black  z-50  py-3 px-4 border border-l-0 border-r-0 border-t-0 border-neutral-800  '
       >
         <div className=' w-52 flex justify-start items-center'>
           <div className='flex justify-between items-center'>
@@ -81,16 +87,19 @@ const NavBar = () => {
             <input
               type='text'
               id='simple-search'
-              className='border rounded-full border-neutral-800 text-neutral-400 text-xl  w-full p-2  pl-6  bg-black focus:border-neutral-600 focus:outline-none placeholder-neutral-600 sm:visible xs:invisible'
+              className='border rounded-full caret-red-600  border-neutral-800 text-white text-xl  w-full p-2  pl-6  bg-black focus:border-red-600 focus:outline-none placeholder-neutral-600 sm:visible xs:invisible  '
               placeholder='Search ...'
               onChange={(e) => handleChange(e)}
               required
             />
-            <div className='self-center'>
+            <div className='self-center cursor-pointer '>
               <img
                 src={search}
                 alt='searchIcon'
-                className='w-8   visible sm:invisible md:invisible lg:invisible xl:invisible 2xl:invisible'
+                className={`w-8 xs:${
+                  mobileSearch ? "invisible" : "visible"
+                } sm:invisible md:invisible lg:invisible xl:invisible 2xl:invisible`}
+                onClick={() => setMobileSearch((prev) => !prev)}
               />
             </div>
           </div>
@@ -117,7 +126,7 @@ const NavBar = () => {
             </NavLink>
           ) : (
             <div
-              className=' flex justify-center items-center gap-2 md:py-2 md:px-8 lg:px-8 lg:py-2  mr-0 bg-red-700 rounded-full hover:bg-red-800 cursor-pointer xs:text-xs xs:py-2 xs:px-5 xs:gap-1 md:text-[16px] lg:text-[16px]  active:scale-95 transform transition duration-200  ease-in-out'
+              className=' flex justify-center items-center gap-2 md:py-2 md:px-8 lg:px-8 lg:py-2  ml-3  mr-0 bg-red-700 rounded-full hover:bg-red-800 cursor-pointer xs:text-xs xs:py-2 xs:px-5 xs:gap-1 md:text-[16px] lg:text-[16px]  active:scale-95 transform transition duration-200  ease-in-out'
               onClick={fetchToken}
             >
               <span>LOGIN</span>
@@ -131,11 +140,36 @@ const NavBar = () => {
         </div>
       </div>
       <div
+        className={` w-full fixed top-[62px] px-4 pt-4 ${
+          mobileSearch ? "visible" : "invisible"
+        } backdrop-blur-md  pb-2.5  sm:invisible md:invisible lg:invisible xl:invisible 2xl:invisible  bg-gradient-to-b from-black to-blacl-800`}
+      >
+        <div
+          className={`w-full border border-red-600 rounded-full flex justify-center items-center gap-2`}
+        >
+          <input
+            type='text'
+            id='mobile-SearchField'
+            className=' w-full h-12 pl-6 pr-4 text-lg   caret-red-600  rounded-full   text-white  focus:border-red-700 focus:outline-none placeholder-neutral-600 bg-transparent'
+            placeholder='Search ...'
+            onChange={(e) => setQuery((prev) => e.target.value)}
+          />
+          <div className='mr-4'>
+            <img
+              src={searchRed}
+              alt='searchIcon'
+              className={`w-8`}
+              onClick={handleMobileSearch}
+            />
+          </div>
+        </div>
+      </div>
+      <div
         className={`border  border-l-0 border-t-0 border-b-0 border-neutral-800 w-60  fixed  top-16 left-0 transition-all duration-300 sm:${
           openDrawer ? "visible" : "invisible"
         } 
           ${openDrawer ? "visible" : "invisible"}
-        md:visible`}
+        md:visible `}
         onClick={() => setOpenDrawer((prev) => !prev)}
       >
         <CategoryGenreBar />
