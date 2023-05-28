@@ -53,7 +53,7 @@ const Movie = ({ movie, i }) => {
             }
             readonly
           />
-          <p className='text-sm  text-neutral-500 overflow-y-scroll'>
+          <p className='text-sm  text-neutral-500 overflow-hidden'>
             <span className='text-md text-white truncate'>Overview:</span>{" "}
             {movie.overview.slice(0, 100)}
             <span className='text-neutral-300'>

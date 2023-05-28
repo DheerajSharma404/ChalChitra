@@ -11,3 +11,23 @@ html {
   color: white;
   scroll-behavior: smooth;
 }
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(35, 35, 35) transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(35, 35, 35);
+  border-radius: 20px;
+  /* border: 0.5px solid orange; */
+}

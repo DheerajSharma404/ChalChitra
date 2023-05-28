@@ -24,7 +24,7 @@ const CategoryGenreBar = () => {
     <div className='w-full h-[940px] pt-4 pb-16  px-2 overflow-y-scroll bg-black'>
       <div className='select-none px-2 pb-4 border border-l-0 border-r-0 border-t-0  border-neutral-800'>
         <span className=' text-start text-lg font-bold'>Categories:</span>
-        <div className='text-start  overflow-y-scroll '>
+        <div className='text-start  '>
           {categories.map(({ label, value }) => (
             <NavLink
               to={`/`}
@@ -56,7 +56,7 @@ const CategoryGenreBar = () => {
               <NavLink
                 key={id}
                 to='/'
-                className='py-2 px-6  rounded-full  whitespace-nowrap flex justify-start items-center gap-4 focus:bg-red-700 focus:text-white hover:bg-red-700 transition duration-100 ease-in-out  overflow-y-scroll my-2'
+                className='py-2 px-6  rounded-full  whitespace-nowrap flex justify-start items-center gap-4 focus:bg-red-700 focus:text-white hover:bg-red-700 transition duration-100 ease-in-out   my-2'
                 onClick={() => dispatch(selectGenreOrCategory(id))}
               >
                 <img

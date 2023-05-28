@@ -212,7 +212,7 @@ const MovieInformation = () => {
               <NavLink
                 key={id}
                 to='/'
-                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out  overflow-y-scroll my-2'
+                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out my-2'
                 onClick={() => dispatch(selectGenreOrCategory(id))}
               >
                 <img
@@ -286,7 +286,7 @@ const MovieInformation = () => {
             >
               <NavLink
                 to={data?.homepage}
-                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out overflow-y-scroll '
+                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out '
               >
                 <img
                   src={globe}
@@ -297,7 +297,7 @@ const MovieInformation = () => {
               </NavLink>
               <NavLink
                 to={`https://www.imdb.com/title/${data?.imdb_id}`}
-                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out  overflow-y-scroll '
+                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out   '
               >
                 <img
                   src={imdb}
@@ -307,7 +307,7 @@ const MovieInformation = () => {
                 <span>IMDB</span>
               </NavLink>
               <button
-                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out  overflow-y-scroll '
+                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out   '
                 onClick={handleTrailer}
               >
                 <img
@@ -323,7 +323,7 @@ const MovieInformation = () => {
               className='flex flex-wrap justify-start sm:justify-center items-center gap-2 pb-4 lg:justify-start xs:justify-center'
             >
               <button
-                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out overflow-y-scroll '
+                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out '
                 onClick={handleFavorite}
               >
                 <img
@@ -336,7 +336,7 @@ const MovieInformation = () => {
                 </span>
               </button>
               <button
-                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out overflow-y-scroll '
+                className='py-2 px-6  border border-neutral-800 rounded-full  whitespace-nowrap flex justify-start items-center gap-2 hover:bg-red-700 active:scale-95 transform transition duration-200 ease-in-out  '
                 onClick={handleWatchlist}
               >
                 <img
@@ -458,8 +458,8 @@ const MovieInformation = () => {
                     </div>
                   </div>
                 </div>
-                <div className=' w-[100%] flex flex-col justify-start items-start h-56 overflow-scroll '>
-                  <p className='text-sm text-neutral-400 pb-4 w-full'>
+                <div className=' w-[100%] flex flex-col justify-start items-start h-56  overflow-y-scroll '>
+                  <p className='text-sm text-neutral-400 w-full'>
                     {review.content}
                   </p>
                 </div>
