@@ -53,13 +53,13 @@ const Movie = ({ movie, i }) => {
             }
             readonly
           />
-          <p className='text-sm  text-neutral-500 overflow-hidden'>
-            <span className='text-md text-white truncate'>Overview:</span>{" "}
+          <p className='text-sm  text-neutral-500 line-clamp-4'>
+            <span className='text-md text-white '>Overview:</span>{" "}
             {movie.overview.slice(0, 100)}
-            <span className='text-neutral-300'>
-              <span to={`/movie/${movie.id}`}> ...Read More</span>
-            </span>
           </p>
+          <span className='text-neutral-300 text-sm'>
+            <span to={`/movie/${movie.id}`}> ...Read More</span>
+          </span>
         </div>
       </NavLink>
     </>
