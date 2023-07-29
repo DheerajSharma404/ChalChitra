@@ -7,7 +7,7 @@ import { searchMovie } from "../../features/currentGenreOrCategorySlice";
 import { fetchToken, createSessionId, moviesApi } from "../../utils/index";
 import { setUser, userSelector } from "../../features/auth";
 
-import menu from "../../assets/images/menu.png";
+import cine from "../../assets/images/cine.png";
 import login from "../../assets/images/login.png";
 import search from "../../assets/images/search.png";
 import searchRed from "../../assets/images/search_red.png";
@@ -66,7 +66,7 @@ const NavBar = () => {
         <div className=' w-52 flex justify-start items-center'>
           <div className='flex justify-between items-center'>
             <img
-              src={menu}
+              src={cine}
               alt='menu button'
               className=' md:w-8 md:h-8 sm:w-6 sm:h-6  xs:w-6 xs:h-6  mr-2 cursor-pointer md:cursor-not-allowed lg:cursor-not-allowed'
               onClick={() => setOpenDrawer(!openDrawer)}
