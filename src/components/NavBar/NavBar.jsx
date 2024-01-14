@@ -61,14 +61,14 @@ const NavBar = () => {
     <div>
       <div
         id='nav__container'
-        className='flex justify-between items-center fixed top-0 w-full  bg-black  z-50  py-3 px-4 border border-l-0 border-r-0 border-t-0 border-neutral-800  '
+        className='flex justify-between items-center fixed top-0 w-full  bg-black  z-50  py-3 px-4 border-b  border-neutral-800 h-16 '
       >
         <div className=' w-52 flex justify-start items-center'>
           <div className='flex justify-between items-center'>
             <img
               src={cine}
               alt='menu button'
-              className=' md:w-8 md:h-8 sm:w-6 sm:h-6  xs:w-6 xs:h-6  mr-2 cursor-pointer md:cursor-not-allowed lg:cursor-not-allowed'
+              className='w-6 h-6  mr-2 cursor-pointer md:cursor-not-allowed lg:cursor-not-allowed'
               onClick={() => setOpenDrawer(!openDrawer)}
             />
             <img
@@ -83,28 +83,31 @@ const NavBar = () => {
           location.pathname === `/genre/${id}` ||
           location.pathname === "/" ||
           location.pathname === "/approved") && (
-          <div className='w-6/12 flex'>
+          <div className='w-6/12 flex justify-end gap-4  '>
             <input
               type='text'
               id='simple-search'
-              className='border rounded-full caret-red-600  border-neutral-800 text-white text-xl  w-full p-2  pl-6  bg-black focus:border-red-600 focus:outline-none placeholder-neutral-600 sm:visible xs:invisible  '
+              className='border rounded-full caret-red-600  border-neutral-800 text-white text-xl  w-full p-2  pl-6  bg-black focus:border-red-600 focus:outline-none placeholder-neutral-600 max-sm:hidden '
               placeholder='Search ...'
               onChange={(e) => handleChange(e)}
               required
             />
-            <div className='self-center cursor-pointer '>
+            <div
+              className='self-center cursor-pointer 
+            mr-1 sm:mr-4 '
+            >
               <img
                 src={search}
                 alt='searchIcon'
-                className={`w-8 xs:${
+                className={`w-8 sm:w-10 xs:${
                   mobileSearch ? "invisible" : "visible"
-                } sm:invisible md:invisible lg:invisible xl:invisible 2xl:invisible`}
+                } sm:invisible object-cover p-1`}
                 onClick={() => setMobileSearch((prev) => !prev)}
               />
             </div>
           </div>
         )}
-        <div className='flex gap-2'>
+        <div className='flex gap-2 '>
           {isAuthenticated ? (
             <NavLink
               to={`/profile/${user?.id}`}
@@ -126,15 +129,12 @@ const NavBar = () => {
             </NavLink>
           ) : (
             <div
-              className=' flex justify-center items-center gap-2 md:py-2 md:px-8 lg:px-8 lg:py-2  ml-3  mr-0 bg-red-700 rounded-full hover:bg-red-800 cursor-pointer xs:text-xs xs:py-2 xs:px-5 xs:gap-1 md:text-[16px] lg:text-[16px]  active:scale-95 transform transition duration-200  ease-in-out'
+              className='w-full flex justify-center items-center gap-2 bg-red-700  hover:bg-red-800 cursor-pointer  active:scale-95 transform transition duration-200  ease-in-out text-[10px] px-5 py-2 rounded-full border-x-slate-100'
               onClick={fetchToken}
             >
-              <span>LOGIN</span>
-              <img
-                src={login}
-                alt='loginIcon'
-                className='w-6 invert xs:w-4 md:w-6 lg:w-6'
-              />
+              <span className={``}>LOGIN</span>
+              
+              <img src={login} alt='loginIcon' className='w-4 invert ' />
             </div>
           )}
         </div>
@@ -165,7 +165,7 @@ const NavBar = () => {
         </div>
       </div>
       <div
-        className={`border  border-l-0 border-t-0 border-b-0 border-neutral-800 w-60  fixed  top-16 left-0 transition-all duration-300 sm:${
+        className={`border-r border-neutral-800 w-60  fixed  top-16 left-0 transition-all duration-300 sm:${
           openDrawer ? "visible" : "invisible"
         } 
           ${openDrawer ? "visible" : "invisible"}

@@ -132,7 +132,7 @@ const MovieInformation = () => {
   }
 
   return (
-    <div className='flex flex-col px-4'>
+    <div className='flex flex-col px-4  relative'>
       <div className='flex flex-col lg:flex-row '>
         <div className='w-full md:w-2/3 sm:w-2/3 sm:mx-auto sm:pb-4  '>
           <img
@@ -543,32 +543,38 @@ const MovieInformation = () => {
       </div>
       <Footer />
 
-      <div
-        className={` flex flex-col absolute top-6 left-4 xs:w-[342px] 2xl:w-[1408px] 2xl:h-[810px] sm:w-[610px] sm:h-[400px] md:w-[495px] lg:w-[750px] lg:h-[500px] xl:w-[1010px] xl:h-[600px]  bg-black  border border-red-700 rounded-3xl  ${
-          isModalOpen ? "visible" : "invisible"
-        }`}
-      >
+      <div className="border">
         <div
-          className='flex justify-end items-center p-4'
-          onClick={() => setIsModalOpen((prev) => !prev)}
+          className={` inline-flex flex-col absolute -top-6 left-0 w-full   bg-black  border border-red-700 rounded-3xl sm:h-[791px]  ${
+            isModalOpen ? "visible" : "invisible"
+          }`}
         >
-          <img src={cancel} alt='' className='w-10 h-10 cursor-pointer inver' />
-        </div>
-        {data?.videos?.results?.length > 0 ? (
-          <iframe
-            autoPlay
-            title='trailer'
-            className='w-full h-full pb-16'
-            src={`https://www.youtube.com/embed/${data?.videos?.results[0].key}`}
-            frameBorder='0'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            allowFullScreen
-          ></iframe>
-        ) : (
-          <div className='flex justify-center items-center text-3xl font-bold text-neutral-600'>
-            Sorry, No Video Was Found!!
+          <div
+            className='flex justify-end items-center p-4'
+            onClick={() => setIsModalOpen((prev) => !prev)}
+          >
+            <img
+              src={cancel}
+              alt=''
+              className='w-10 h-10 cursor-pointer hover:scale-110 transform transition duration-200 ease-in-out'
+            />
           </div>
-        )}
+          {data?.videos?.results?.length > 0 ? (
+            <iframe
+              autoPlay
+              title='trailer'
+              className='w-full h-full pb-16'
+              src={`https://www.youtube.com/embed/${data?.videos?.results[0].key}`}
+              frameBorder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              allowFullScreen
+            ></iframe>
+          ) : (
+            <div className='flex justify-center items-center text-3xl font-bold text-neutral-600'>
+              Sorry, No Video Was Found!!
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
