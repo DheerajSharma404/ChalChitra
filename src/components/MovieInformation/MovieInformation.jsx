@@ -114,7 +114,7 @@ const MovieInformation = () => {
 
   if (isLoading)
     return (
-      <div className='w-[90vw] flex justify-center items-center'>
+      <div className='w-[90vw] flex justify-center items-center  '>
         {" "}
         <FadeLoader color='#ff0000' aria-label='Loading Spinner' />
       </div>
@@ -132,7 +132,7 @@ const MovieInformation = () => {
   }
 
   return (
-    <div className='flex flex-col px-4  relative'>
+    <div className='flex flex-col px-4  relative  '>
       <div className='flex flex-col lg:flex-row '>
         <div className='w-full md:w-2/3 sm:w-2/3 sm:mx-auto sm:pb-4  '>
           <img
@@ -543,14 +543,14 @@ const MovieInformation = () => {
       </div>
       <Footer />
 
-      <div className="border">
+      <div>
         <div
-          className={` inline-flex flex-col absolute -top-6 left-0 w-full   bg-black  border border-red-700 rounded-3xl sm:h-[791px]  ${
+          className={` inline-flex  flex-col absolute top-0  left-4 right-4   bg-black  border border-red-700 rounded-3xl sm:h-[791px] overflow-hidden  ${
             isModalOpen ? "visible" : "invisible"
           }`}
         >
           <div
-            className='flex justify-end items-center p-4'
+            className='flex justify-end items-center p-4 '
             onClick={() => setIsModalOpen((prev) => !prev)}
           >
             <img

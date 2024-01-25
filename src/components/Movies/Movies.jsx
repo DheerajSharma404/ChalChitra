@@ -20,7 +20,6 @@ const Movies = () => {
     window.scrollTo(0, 0);
   }, [page]);
 
-  console.log("MOvieData", data);
   if (isLoading) {
     return (
       <div className='w-[80vw] flex justify-center items-center'>
@@ -38,7 +37,7 @@ const Movies = () => {
   }
 
   return (
-    <main className='p-4 pt-0 '>
+    <main className='p-4 pt-0 pb-1 '>
       {data?.results?.length !== 0 && (
         <FeaturedMovie movie={data?.results[0]} />
       )}

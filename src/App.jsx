@@ -26,7 +26,7 @@ const Layout = () => {
   return (
     <div>
       <NavBar />
-      <div className=' absolute top-16 xs:top-16 md:left-60 -z-10 py-4 pt-6 overflow-hidden transition-all  duration-75 ease-in-out'>
+      <div className=' absolute top-16 md:left-[228px] -z-10 pb-4  transition-all  duration-75 ease-in-out  '>
         <Outlet />
       </div>
     </div>

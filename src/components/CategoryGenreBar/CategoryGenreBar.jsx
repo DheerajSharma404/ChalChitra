@@ -21,9 +21,11 @@ const CategoryGenreBar = () => {
   ];
 
   return (
-    <div className='fixed top-[calc(100% - 64)] left-0 h-screen pt-4 pb-16  px-2 overflow-auto bg-black '>
-      <div className='select-none px-2 pb-4 border border-l-0 border-r-0 border-t-0  border-neutral-800'>
-        <span className=' text-start text-lg font-bold'>Categories:</span>
+    <div className='fixed top-[calc(100% - 64px)] left-0 h-screen  pb-16 px-2 overflow-auto bg-black '>
+      <div className='select-none px-2  '>
+        <span className=' text-start text-lg sm:text-2xl  font-bold text-neutral-500/80'>
+          Categories:
+        </span>
         <div className='text-start  '>
           {categories.map(({ label, value }) => (
             <NavLink
@@ -43,11 +45,13 @@ const CategoryGenreBar = () => {
         </div>
       </div>
 
-      <div className='select-none px-2 pt-4 '>
-        <span className=' text-start text-lg font-bold '>Genres:</span>
+      <div className='select-none px-2 pt-4  '>
+        <span className=' text-start text-lg  sm:text-2xl font-bold  text-neutral-500/80'>
+          Genres:
+        </span>
         <div className='text-start '>
           {isLoading ? (
-            <div className='w-[60vw] flex justify-center items-center'>
+            <div className='flex justify-center items-center'>
               {" "}
               <FadeLoader color='#ff0000' aria-label='Loading Spinner ' />
             </div>

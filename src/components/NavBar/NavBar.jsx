@@ -61,7 +61,7 @@ const NavBar = () => {
     <div>
       <div
         id='nav__container'
-        className='flex justify-between items-center fixed top-0 w-full  bg-black  z-50  py-3 px-4 border-b  border-neutral-800 h-16 '
+        className='flex justify-between items-center fixed top-0 w-full backdrop-blur-lg  z-50  py-3 px-4  h-16 '
       >
         <div className=' w-52 flex justify-start items-center'>
           <div className='flex justify-between items-center'>
@@ -87,7 +87,7 @@ const NavBar = () => {
             <input
               type='text'
               id='simple-search'
-              className='border rounded-full caret-red-600  border-neutral-800 text-white text-xl  w-full p-2  pl-6  bg-black focus:border-red-600 focus:outline-none placeholder-neutral-600 max-sm:hidden '
+              className='border rounded-full caret-red-600 border-red-600/40 text-white text-xl  w-full p-2  pl-6  bg-transparent focus:border-red-600 focus:outline-none placeholder-neutral-600 max-sm:hidden '
               placeholder='Search ...'
               onChange={(e) => handleChange(e)}
               required
@@ -133,7 +133,7 @@ const NavBar = () => {
               onClick={fetchToken}
             >
               <span className={``}>LOGIN</span>
-              
+
               <img src={login} alt='loginIcon' className='w-4 invert ' />
             </div>
           )}
